@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4</title>
+</head>
+<body>
+    <form method="post" action="">
+        <fieldset>
+            <legend>User</legend>
+            <fieldset>
+                <label for="n1">Nome:</label>
+                <input type="text" name="nome" id="n1"><br>
+            </fieldset>
+
+            <label for="s1">Senha:</label>
+            <input type="password" name="senha" id="s1"><br>
+            <input type="hidden" name="user" id="14">
+            <label for="c1">Comentário:</label><br>
+            <textarea name="comentario" cols="10" rows="5" id="c1">Digite a sua opnião</textarea><br>
+            <input type="submit" name="enviar" value="APERTA"><br>            
+        </fieldset>
+
+        <label for="b1">CLICK</label>
+        <input type="button" name="b" id="b1">
+        
+        <button type="">Botão</button>
+
+        Time:<br>
+        <input type="radio" name="time" value="Gre" id="Gre">
+        <label for="gre1">Grêmio</label>
+        <input type="radio" name="time" value="Int1" id="Int">
+        <label for="int1">Internacional</label><br>
+
+        OS:<br>
+        <input checked type="checkbox" name="os" id="win1">
+        <label for="win1">Windows</label>
+        <input type="checkbox" name="os" id="lin1">
+        <label for="lin1">Linxus</label><br>
+
+        <label for="disciplina">Disciplina:</label>
+        <select name="dis" id="disciplina">
+            <option value="w1">Web1</option>
+            <option value="w2">Web2</option>
+        </select><br>
+
+        <label for="t1">Telefone</label>
+        <input type="tel" name="tel" id="t1" placeholder="+55"><br>
+
+        <label for="p1">Procura</label>
+        <input type="search" name="pro" id="p1" disabled required><br>
+
+        <label for="e1">Email</label>
+        <input type="email" name="email" id="e1"><br>
+
+        <label for="l1">Link</label>
+        <input type="url" name="link" id="l1"><br>
+        
+        <label for="d1">Data</label>
+        <input type="date" name="data" id="d1"><br>
+        
+        <label for="i1">Idade</label>
+        <input type="number" name="idade" id="i1" min="0" max="120"><br>
+
+        <label for="c1">Cor</label>
+        <input type="color" name="cor" id="c1"><br>
+
+        <input type="datetime-local" name="" id="">
+        <input type="week" name="" id="">
+        <input type="text" name="nome" id="n" size="10" maxlength="10" required autofocus>
+    </form>
+</body>
+</html>
