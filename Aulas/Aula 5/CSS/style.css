@@ -1,0 +1,21 @@
+body {
+    color: brown;
+    font-family: "Moo Lah Lah", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    text-align: center;
+    text-decoration: underline overline double;
+    text-transform: capitalize;
+
+    font-style: italic;
+}
+
+main {
+    font-size: 16px;
+    font-weight: 1000;
+}
+
+  
