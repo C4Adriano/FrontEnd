@@ -66,6 +66,8 @@
             </tfoot>
         </table>
 
+        <a href="https://www.desmos.com/calculator?lang=pt-BR"><img src="IMG/const.png" alt="Gráfico da função constante" title="Gráfico" height="250"></a>
+
         <h2 id="poli">Funções Polinomiais</h2>
         <p>Funções Polinomiais são as funções mais básicas, no qual, o x está elevado a algum expoente (polinómio)</p>
         <p>Por exemplo: <em>'ƒ(x) = ax² + bx + c'</em></p>
@@ -107,7 +109,7 @@
             </tfoot>
         </table>
 
-        <img src="IMG/poli.png" alt="Gráfico da função polinomial" title="Gráfico" height="500">
+        <a href="https://www.desmos.com/calculator?lang=pt-BR"><img src="IMG/poli.png" alt="Gráfico da função polinomial" title="Gráfico" height="500"></a>
 
         <h2 id="naopoli">Funções não Polinomiais</h2>
         <p>Funções não Polinomiais são as funções que não tem um polinómio, mas, ainda têm x</p>
@@ -150,9 +152,16 @@
             </tfoot>
         </table>
 
+        <a href="https://www.desmos.com/calculator?lang=pt-BR"><img src="IMG/naopoli.png" alt="Gráfico da função não polinomial" title="Gráfico" height="400"></a>
+
         <h2 id="trig">Funções Trigonométricas</h2>
         <p>Funções Trigonométricas são as funções em relação ao Triângulo Trigonométrico</p>
-        <p>Por exemplo: <em>'ƒ(x) = sen(x)'</em></p>
+        <p>Por exemplo:</p>
+        <ul>
+            <li>ƒ(x) = sen(x)</li>
+            <li>ƒ(x) = cos(x)</li>
+            <li>ƒ(x) = tan(x)</li>
+        </ul>
         <table>
             <caption>ƒ(x) = sen(x)</caption>
             <thead>
@@ -191,16 +200,21 @@
             </tfoot>
         </table>
 
+        <a href="https://www.desmos.com/calculator?lang=pt-BR"><img src="IMG/trig.png" alt="Gráfico da função trigonométrica" title="Gráfico" height="200"></a>
+
         <br>
+
+        <h2>Tudo sobre Funções</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/hIc5y6IXi-4?si=S1N4W1gnQLido2IZ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         <h2>Formulário</h2>
         <form action="JS/nada.js">
             <fieldset>
                 <legend>Dados</legend>
-                <label for="nome">Seu nome</label>
+                <label class="obg" for="nome">Seu nome</label>
                 <input type="text" name="nome" id="nome">
                 <br>
-                <label for="idade">Sua idade</label>
+                <label class="obg" for="idade">Sua idade</label>
                 <input type="number" name="idade" id="idade" min="6" max="120">
                 <br>
                 <label for="telefone">Seu telefone</label>
@@ -209,7 +223,7 @@
                 <label for="email">Seu email</label>
                 <input type="email" name="email" id="email">
                 <br>
-                <label for="cpf">Seu cpf</label>
+                <label class="obg" for="cpf">Seu cpf</label>
                 <input type="text" name="cpf" id="cpf">
                 <br>
                 <label for="cnpj">Seu cnpj</label>
