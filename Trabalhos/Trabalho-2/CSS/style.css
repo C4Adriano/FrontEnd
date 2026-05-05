@@ -1,36 +1,220 @@
-h1, h2 {
+/* === Geral === */
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* === Header === */
+
+header {
+    text-align: center;
+    padding: 24px 16px;
+}
+
+#logo {
+    height: clamp(48px, 8vw, 80px);
+    margin-bottom: 12px;
+}
+
+#header-titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* === Títulos === */
+
+h1,
+h2 {
     color: red;
     text-decoration: underline;
     text-align: center;
 }
 
-p, ul, table, label {
+h1 {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+h2 {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* === Textos gerais === */
+
+p,
+ul,
+table,
+label {
     color: purple;
-}
-
-tbody tr td, #esp, .obg {
-    color: aquamarine;
-}
-
-table td, th {
-    width: 100px;
-    text-align: center;
-}
-
-table {
-    border-style: groove;
 }
 
 p::first-letter {
     font-size: 200%;
 }
 
-footer {
-    font-size: 11px;
+/* === Nav === */
+
+nav {
+    background-color: #f0f0f0;
+    padding: 8px 0;
 }
 
-html {
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: purple;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    background-color: purple;
+    color: white;
+}
+
+#esp {
+    color: aquamarine;
+}
+
+/* === Tabelas === */
+
+table {
+    border-style: groove;
+    margin: 16px auto;
+}
+
+table td,
+th {
+    width: clamp(50px, 10vw, 100px);
+    text-align: center;
+    padding: 4px;
+}
+
+tbody tr td {
+    color: aquamarine;
+}
+
+.tabela-grafico {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 16px 0;
+}
+
+/* === Imagens da seção 1 === */
+
+.tabela-grafico img {
+    width: clamp(150px, 30vw, 280px);
+    height: clamp(150px, 30vw, 280px);
+    object-fit: contain;
+}
+
+/* === Voltar ao topo === */
+
+.voltar-topo {
+    display: block;
+    text-align: center;
+    margin: 32px auto 8px auto;
+    color: purple;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.voltar-topo:hover {
+    text-decoration: underline;
+}
+
+/* === Galeria (seção 2) === */
+
+#galeria {
+    padding: 16px 0;
+}
+
+.galeria-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.galeria-grid figure {
+    flex: 1 1 clamp(150px, 30vw, 280px);
+    max-width: clamp(150px, 40vw, 280px);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+    margin: 0;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.galeria-grid figcaption {
+    color: purple;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* Iframe da galeria centralizado */
+
+#galeria iframe {
+    display: block;
+    margin: 0 auto;
+    width: clamp(280px, 80vw, 560px);
+    height: clamp(160px, 45vw, 315px);
+}
+
+/* === Referências === */
+
+#referencias {
+    margin: 16px auto;
+    max-width: 600px;
+}
+
+#referencias li {
+    margin-bottom: 6px;
+}
+
+#referencias a {
+    color: purple;
+}
+
+/* === Footer === */
+
+footer {
+    font-size: clamp(10px, 1.2vw, 13px);
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid #ccc;
+    margin-top: 32px;
+}
+
+footer a {
+    color: purple;
 }
