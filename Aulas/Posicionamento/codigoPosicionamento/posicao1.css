@@ -1,0 +1,14 @@
+/* .itens {
+    width:40%;
+    height: 50px;
+} */
+
+.itemUm {
+    background-color: aqua;
+}
+.itemDois {
+    background-color: orange;
+}
+.itemTres {
+    background-color: palegreen;
+}

@@ -1,0 +1,72 @@
+h1,
+p {
+    color: blue;
+    font-size: 10cap;
+    font-style: italic;
+    font-family: monospace;
+}
+header h1 {
+    color: red;
+}
+p {
+    color: aqua;
+}
+.rgb {
+    animation: rgbColors 35s linear infinite;
+}
+.rgbB {
+    animation: rgbBackColors 35s linear infinite;
+}
+#b {
+    background-color: black;
+}
+
+/* Animação de cores RGB */
+@keyframes rgbColors {
+    0% {
+        color: rgb(255, 0, 0);
+    } /* vermelho */
+    16% {
+        color: rgb(255, 255, 0);
+    } /* amarelo */
+    33% {
+        color: rgb(0, 255, 0);
+    } /* verde */
+    50% {
+        color: rgb(0, 255, 255);
+    } /* ciano */
+    66% {
+        color: rgb(0, 0, 255);
+    } /* azul */
+    83% {
+        color: rgb(255, 0, 255);
+    } /* magenta */
+    100% {
+        color: rgb(255, 0, 0);
+    } /* volta ao vermelho */
+}
+
+/* Animação de cores RGB */
+@keyframes rgbBackColors {
+    0% {
+        background-color: rgb(0, 255, 255);
+    } /* vermelho */
+    16% {
+        background-color: rgb(0, 255, 0);
+    } /* amarelo */
+    33% {
+        background-color: rgb(255, 255, 0);
+    } /* verde */
+    50% {
+        background-color: rgb(255, 0, 255);
+    } /* ciano */
+    66% {
+        background-color: rgb(0, 0, 255);
+    } /* azul */
+    83% {
+        background-color: rgb(255, 0, 0);
+    } /* magenta */
+    100% {
+        background-color: rgb(0, 255, 255);
+    } /* volta ao vermelho */
+}

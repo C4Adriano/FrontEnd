@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Figuras</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .oito {
+                border: 2px solid blue;
+                margin: 4px;
+                background-image: url("https://logodownload.org/wp-content/uploads/2017/10/w3c-logo-6.png");
+            }
+
+            .nove {
+                border: 2px solid blue;
+                margin: 4px;
+                background-image: url("https://logodownload.org/wp-content/uploads/2017/10/w3c-logo-6.png");
+                width: 50vw;
+                height: 50vw;
+            }
+
+            .dez {
+                border: 2px solid blue;
+                margin: 4px;
+                width: 50vw;
+                height: 50vw;
+                background-image: url("https://logodownload.org/wp-content/uploads/2017/10/w3c-logo-6.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                /* background-size: cover; */
+                /* background-size: 25vw auto; */
+                /* background-position: 10vw 10vw; */
+            }
+
+            /* Leitores de tela e robôs da internet(SEO)não leem css.
+Quando a imagem é de fundo, objetivo só estético, deve-se
+inserir imagem no css (com background-image).
+
+Quando a imagem passa alguma informação que deva ser lida
+por leitores de telas e robos SEO deve-se inserir imagem com
+a tag img no html e fazer ajustes de tamanho no css
+ */
+
+            .onze {
+                border: 1vw solid blue;
+                margin: 2vw;
+                width: 50vw;
+                height: 50vw;
+            }
+            .onze img {
+                width: 100%;
+                height: auto;
+                max-width: 200px;
+                /* width: 100vw;  */
+                /* width:100px */
+                /* height: 100%; */
+            }
+
+            .doze {
+                border: 1vw solid blue;
+                margin: 2vw;
+                width: 50vw;
+                height: 50vw;
+            }
+            .doze img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                /* object-fit: cover; */
+            }
+
+            /* Recomenda-se sempre definir width e height na tag img
+Ao fazer ajuste no css width:100% e height:auto
+proporcionam responsividade.
+
+Especificar height torna o object-fit(cover e contain)
+sem efeito (usar um ou outro)
+*/
+        </style>
+    </head>
+    <body>
+        <h1>Inserindo imagens no css com background-image</h1>
+        <br />
+        <div class="oito">Oito</div>
+        <div class="nove">Nove</div>
+        <div class="dez">Dez</div>
+
+        <h1>Inserindo imagens no html com a tag img</h1>
+        <br />
+        Onze
+        <div class="onze">
+            <img src="https://logodownload.org/wp-content/uploads/2017/10/w3c-logo-6.png" width="200" height="100" />
+        </div>
+
+        Doze
+        <div class="doze">
+            <img
+                src="https://logodownload.org/wp-content/uploads/2017/10/w3c-logo-6.png"
+                width="200"
+                height="100"
+                alt="" />
+        </div>
+    </body>
+</html>
