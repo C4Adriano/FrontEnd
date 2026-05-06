@@ -7,8 +7,9 @@ Texto: purple / red
 Background: white / black
 */
 
-/* === Geral === */
+/* === Variáveis e Tema === */
 
+/* Tema claro (padrão) */
 :root {
     --bg-color: white;
     --text-color: purple;
@@ -28,6 +29,7 @@ Background: white / black
     --footer-border: #ccc;
 }
 
+/* Tema escuro: ativado pelo checkbox #theme-toggle via seletor de irmão (~) */
 #theme-toggle:checked ~ .theme-root {
     --bg-color: black;
     --text-color: red;
@@ -47,6 +49,13 @@ Background: white / black
     --footer-border: #666;
 }
 
+/* Inverte as cores das imagens no tema escuro para melhor contraste */
+#theme-toggle:checked ~ .theme-root img {
+    filter: invert(1);
+}
+
+/* === Geral === */
+
 html {
     font-family: "Roboto", sans-serif;
     font-style: normal;
@@ -60,6 +69,7 @@ body {
     color: var(--text-color);
 }
 
+/* Envolve todo o conteúdo para que as variáveis de tema sejam aplicadas corretamente */
 .theme-root {
     min-height: 100vh;
     background-color: var(--bg-color);
@@ -72,31 +82,6 @@ body {
     padding: 0 16px;
 }
 
-/* === Header === */
-
-header {
-    text-align: center;
-    padding: 24px 16px;
-}
-
-#menu {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-}
-
-#logo {
-    height: clamp(48px, 8vw, 80px);
-    margin-bottom: 12px;
-}
-
-#header-titulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-}
-
 /* === Títulos === */
 
 h1,
@@ -107,6 +92,7 @@ h3 {
     text-align: center;
 }
 
+/* clamp(mínimo, ideal, máximo): tamanho responsivo sem @media */
 h1 {
     font-size: clamp(1.5rem, 5vw, 3rem);
 }
@@ -137,17 +123,35 @@ a:hover {
     color: var(--link-hover);
 }
 
-#topo,
-#const,
-#poli,
-#naopoli,
-#trig,
-#galeria {
-    scroll-margin-top: 65px;
+/* === Header === */
+
+header {
+    text-align: center;
+    padding: 24px 16px;
+}
+
+#logo {
+    height: clamp(48px, 8vw, 80px);
+    margin-bottom: 12px;
+}
+
+#header-titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Botão de tema: fixed no canto superior direito, acima da nav (z-index: 1000) */
+#menu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }
 
 /* === Nav === */
 
+/* sticky: fica no fluxo normal até o scroll chegar, aí gruda no topo */
 nav {
     background-color: var(--nav-bg);
     padding: 8px 0;
@@ -178,13 +182,14 @@ nav ul li a:hover {
     color: var(--nav-hover-color);
 }
 
+/* Link especial com cor e hover diferentes dos demais */
+#esp {
+    color: var(--esp-color);
+}
+
 nav ul li #esp:hover {
     background-color: var(--esp-hover-bg);
     color: var(--esp-hover-color);
-}
-
-#esp {
-    color: var(--esp-color);
 }
 
 /* === Botão de Tema === */
@@ -206,12 +211,25 @@ nav ul li #esp:hover {
     color: var(--nav-hover-color);
 }
 
+/* ::after insere o texto do botão via CSS, evitando JS para trocar o label */
 .theme-button::after {
     content: "Escuro";
 }
 
 #theme-toggle:checked ~ .theme-root .theme-button::after {
     content: "Claro";
+}
+
+/* === Âncoras === */
+
+/* Compensa a altura da nav sticky para os links internos não ficarem cobertos */
+#topo,
+#const,
+#poli,
+#naopoli,
+#trig,
+#galeria {
+    scroll-margin-top: 65px;
 }
 
 /* === Tabelas === */
@@ -232,6 +250,9 @@ tbody tr td {
     color: var(--tbody-td-color);
 }
 
+/* === Seção 1 — Tipos de Funções === */
+
+/* Container que agrupa tabela e gráfico lado a lado, quebrando em telas menores */
 .tabela-grafico {
     display: flex;
     flex-wrap: wrap;
@@ -241,8 +262,7 @@ tbody tr td {
     margin: 16px 0;
 }
 
-/* === Imagens da seção 1 === */
-
+/* No hover, o item cresce e ocupa a linha inteira (flex-grow alto + max-width 100%) */
 .tabela-grafico a {
     flex: 1 1 clamp(150px, 30vw, 280px);
     max-width: clamp(150px, 40vw, 280px);
@@ -267,10 +287,9 @@ tbody tr td {
 
 .tabela-grafico img:hover {
     aspect-ratio: auto;
-    transform: none;
 }
 
-/* === Voltar ao topo === */
+/* === Voltar ao Topo === */
 
 .voltar-topo {
     display: block;
@@ -286,12 +305,13 @@ tbody tr td {
     text-decoration-color: var(--link-hover);
 }
 
-/* === Galeria (seção 2) === */
+/* === Seção 2 — Galeria === */
 
 #galeria {
     padding: 16px 0;
 }
 
+/* Mesma lógica de expansão no hover da seção 1, mas com figure + sombra */
 .galeria-grid {
     display: flex;
     flex-wrap: wrap;
