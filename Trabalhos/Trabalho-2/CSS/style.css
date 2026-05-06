@@ -1,4 +1,51 @@
+/* Cores base (primário / secundário):
+Principal: red / purple
+Secundária: purple / red
+Complementar: aquamarine / aqua
+Link: blue / lightblue
+Texto: purple / red
+Background: white / black
+*/
+
 /* === Geral === */
+
+:root {
+    --bg-color: white;
+    --text-color: purple;
+    --text-shadow: rgba(128, 0, 128, 0.5);
+    --header-color: red;
+    --nav-bg: #f0f0f0;
+    --nav-link-color: purple;
+    --nav-hover-bg: purple;
+    --nav-hover-color: white;
+    --esp-color: aquamarine;
+    --esp-hover-bg: aqua;
+    --esp-hover-color: black;
+    --table-border: groove;
+    --tbody-td-color: aquamarine;
+    --link-hover: blue;
+    --border-color: #ccc;
+    --footer-border: #ccc;
+}
+
+#theme-toggle:checked ~ .theme-root {
+    --bg-color: black;
+    --text-color: red;
+    --text-shadow: rgba(211, 211, 211, 0.5);
+    --header-color: purple;
+    --nav-bg: #333;
+    --nav-link-color: red;
+    --nav-hover-bg: red;
+    --nav-hover-color: black;
+    --esp-color: aqua;
+    --esp-hover-bg: aquamarine;
+    --esp-hover-color: white;
+    --table-border: solid;
+    --tbody-td-color: aqua;
+    --link-hover: lightblue;
+    --border-color: #666;
+    --footer-border: #666;
+}
 
 html {
     font-family: "Roboto", sans-serif;
@@ -7,6 +54,19 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: var(--text-color);
+}
+
+.theme-root {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.site-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 16px;
@@ -34,18 +94,23 @@ header {
 /* === Títulos === */
 
 h1,
-h2 {
-    color: red;
+h2,
+h3 {
+    color: var(--header-color);
     text-decoration: underline;
     text-align: center;
 }
 
 h1 {
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 h2 {
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+}
+
+h3 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 /* === Textos gerais === */
@@ -54,17 +119,22 @@ p,
 ul,
 table,
 label {
-    color: purple;
+    color: var(--text-color);
 }
 
 p::first-letter {
     font-size: 200%;
 }
 
+a:hover {
+    text-decoration: underline;
+    color: var(--link-hover);
+}
+
 /* === Nav === */
 
 nav {
-    background-color: #f0f0f0;
+    background-color: var(--nav-bg);
     padding: 8px 0;
 }
 
@@ -79,25 +149,49 @@ nav ul {
 }
 
 nav ul li a {
-    color: purple;
+    color: var(--nav-link-color);
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 4px;
 }
 
 nav ul li a:hover {
-    background-color: purple;
-    color: white;
+    background-color: var(--nav-hover-bg);
+    color: var(--nav-hover-color);
+}
+
+nav ul li #esp:hover {
+    background-color: var(--esp-hover-bg);
+    color: var(--esp-hover-color);
 }
 
 #esp {
-    color: aquamarine;
+    color: var(--esp-color);
+}
+
+/* === Botão de Tema === */
+
+.theme-button {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: var(--nav-bg);
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+.theme-button:hover {
+    background-color: var(--nav-hover-bg);
+    color: var(--nav-hover-color);
 }
 
 /* === Tabelas === */
 
 table {
-    border-style: groove;
+    border-style: var(--table-border);
     margin: 16px auto;
 }
 
@@ -109,7 +203,7 @@ th {
 }
 
 tbody tr td {
-    color: aquamarine;
+    color: var(--tbody-td-color);
 }
 
 .tabela-grafico {
@@ -123,10 +217,31 @@ tbody tr td {
 
 /* === Imagens da seção 1 === */
 
+.tabela-grafico a {
+    flex: 1 1 clamp(150px, 30vw, 280px);
+    max-width: clamp(150px, 40vw, 280px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        flex-grow 0.3s ease,
+        max-width 0.3s ease;
+}
+
+.tabela-grafico a:hover {
+    flex-grow: 10;
+    max-width: 100%;
+}
+
 .tabela-grafico img {
-    width: clamp(150px, 30vw, 280px);
-    height: clamp(150px, 30vw, 280px);
+    width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: contain;
+}
+
+.tabela-grafico img:hover {
+    aspect-ratio: auto;
+    transform: none;
 }
 
 /* === Voltar ao topo === */
@@ -135,13 +250,14 @@ tbody tr td {
     display: block;
     text-align: center;
     margin: 32px auto 8px auto;
-    color: purple;
+    color: var(--text-color);
     font-weight: bold;
     text-decoration: none;
 }
 
 .voltar-topo:hover {
-    text-decoration: underline;
+    text-decoration: underline solid;
+    text-decoration-color: var(--link-hover);
 }
 
 /* === Galeria (seção 2) === */
@@ -161,27 +277,39 @@ tbody tr td {
 .galeria-grid figure {
     flex: 1 1 clamp(150px, 30vw, 280px);
     max-width: clamp(150px, 40vw, 280px);
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 8px;
     text-align: center;
     margin: 0;
+    transition:
+        flex-grow 0.3s ease,
+        max-width 0.3s ease;
+}
+
+.galeria-grid figure:hover {
+    flex-grow: 10;
+    max-width: 100%;
+    border-color: var(--text-color);
+    box-shadow: 0 0 8px var(--text-shadow);
 }
 
 .galeria-grid img {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 4px;
 }
 
+.galeria-grid figure:hover img {
+    object-fit: contain;
+}
+
 .galeria-grid figcaption {
-    color: purple;
+    color: var(--text-color);
     font-size: 13px;
     margin-top: 8px;
 }
-
-/* Iframe da galeria centralizado */
 
 #galeria iframe {
     display: block;
@@ -202,7 +330,13 @@ tbody tr td {
 }
 
 #referencias a {
-    color: purple;
+    color: var(--text-color);
+}
+
+#referencias a:hover {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--link-hover);
+    color: var(--link-hover);
 }
 
 /* === Footer === */
@@ -211,10 +345,16 @@ footer {
     font-size: clamp(10px, 1.2vw, 13px);
     text-align: center;
     padding: 16px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--footer-border);
     margin-top: 32px;
 }
 
 footer a {
-    color: purple;
+    color: var(--text-color);
+}
+
+footer a:hover {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--link-hover);
+    color: var(--link-hover);
 }
