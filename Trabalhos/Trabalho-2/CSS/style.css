@@ -22,11 +22,8 @@ Background: white / black
     --esp-color: aquamarine;
     --esp-hover-bg: aqua;
     --esp-hover-color: black;
-    --table-border: groove;
     --tbody-td-color: aquamarine;
     --link-hover: blue;
-    --border-color: #ccc;
-    --footer-border: #ccc;
 }
 
 /* Tema escuro: ativado pelo checkbox #theme-toggle via seletor de irmão (~) */
@@ -42,11 +39,8 @@ Background: white / black
     --esp-color: aqua;
     --esp-hover-bg: aquamarine;
     --esp-hover-color: white;
-    --table-border: solid;
     --tbody-td-color: aqua;
     --link-hover: lightblue;
-    --border-color: #666;
-    --footer-border: #666;
 }
 
 /* Inverte as cores das imagens no tema escuro para melhor contraste */
@@ -65,7 +59,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: var(--bg-color);
     color: var(--text-color);
 }
 
@@ -235,7 +229,7 @@ nav ul li #esp:hover {
 /* === Tabelas === */
 
 table {
-    border-style: var(--table-border);
+    border-style: solid;
     margin: 16px auto;
 }
 
@@ -323,7 +317,7 @@ tbody tr td {
 .galeria-grid figure {
     flex: 1 1 clamp(150px, 30vw, 280px);
     max-width: clamp(150px, 40vw, 280px);
-    border: 1px solid var(--border-color);
+    border: 1px solid #ccc;
     border-radius: 6px;
     padding: 8px;
     text-align: center;
@@ -391,7 +385,7 @@ footer {
     font-size: clamp(10px, 1.2vw, 13px);
     text-align: center;
     padding: 16px;
-    border-top: 1px solid var(--footer-border);
+    border-top: 1px solid #ccc;
     margin-top: 32px;
 }
 
