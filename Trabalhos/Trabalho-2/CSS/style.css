@@ -79,6 +79,12 @@ header {
     padding: 24px 16px;
 }
 
+#menu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
 #logo {
     height: clamp(48px, 8vw, 80px);
     margin-bottom: 12px;
@@ -131,11 +137,23 @@ a:hover {
     color: var(--link-hover);
 }
 
+#topo,
+#const,
+#poli,
+#naopoli,
+#trig,
+#galeria {
+    scroll-margin-top: 65px;
+}
+
 /* === Nav === */
 
 nav {
     background-color: var(--nav-bg);
     padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 nav ul {
@@ -186,6 +204,14 @@ nav ul li #esp:hover {
 .theme-button:hover {
     background-color: var(--nav-hover-bg);
     color: var(--nav-hover-color);
+}
+
+.theme-button::after {
+    content: "Escuro";
+}
+
+#theme-toggle:checked ~ .theme-root .theme-button::after {
+    content: "Claro";
 }
 
 /* === Tabelas === */
