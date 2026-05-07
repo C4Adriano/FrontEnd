@@ -11,6 +11,7 @@ Background: white / black
 
 /* Tema claro (padrão) */
 :root {
+    /* Declaração de variáveis em CSS */
     --bg-color: white;
     --text-color: purple;
     --text-shadow: rgba(128, 0, 128, 0.5);
@@ -50,15 +51,18 @@ Background: white / black
 
 /* === Geral === */
 
+/* Fonte do Google Fonts - Roboto */
 html {
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-variation-settings: "wdth" 100;
 }
 
+/* body para padronizar; mesmo com o modern-normalizer */
 body {
     margin: 0;
     padding: 0;
+    /* Uso de variáveis em CSS */
     background-color: var(--bg-color);
     color: var(--text-color);
 }
@@ -70,6 +74,7 @@ body {
     color: var(--text-color);
 }
 
+/* Conteúdo principal do site */
 .site-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -78,6 +83,7 @@ body {
 
 /* === Títulos === */
 
+/* Cores, decorações e alinhamento */
 h1,
 h2,
 h3 {
@@ -86,7 +92,7 @@ h3 {
     text-align: center;
 }
 
-/* clamp(mínimo, ideal, máximo): tamanho responsivo sem @media */
+/* clamp(mínimo, ideal, máximo): tamanho responsivo */
 h1 {
     font-size: clamp(1.5rem, 5vw, 3rem);
 }
@@ -101,6 +107,7 @@ h3 {
 
 /* === Textos gerais === */
 
+/* Cor */
 p,
 ul,
 table,
@@ -108,10 +115,12 @@ label {
     color: var(--text-color);
 }
 
+/* Aumenta a 1ª letra */
 p::first-letter {
     font-size: 200%;
 }
 
+/* Quando passa por cima do link */
 a:hover {
     text-decoration: underline;
     color: var(--link-hover);
@@ -119,16 +128,19 @@ a:hover {
 
 /* === Header === */
 
+/* Alinhamento e padding (vertical, horizontal) */
 header {
     text-align: center;
     padding: 24px 16px;
 }
 
+/* Logo do header */
 #logo {
     height: clamp(48px, 8vw, 80px);
     margin-bottom: 12px;
 }
 
+/* Flex box no header com o logo */
 #header-titulo {
     display: flex;
     justify-content: center;
@@ -136,7 +148,7 @@ header {
     gap: 12px;
 }
 
-/* Botão de tema: fixed no canto superior direito, acima da nav (z-index: 1000) */
+/* Botão de tema: absolute para que fique no canto superior direito */
 #menu {
     position: absolute;
     top: 16px;
@@ -154,6 +166,7 @@ nav {
     z-index: 999;
 }
 
+/* Flex box na lista de links da navegação */
 nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -164,6 +177,7 @@ nav ul {
     padding: 0;
 }
 
+/* Estilos para os links da navegação */
 nav ul li a {
     color: var(--nav-link-color);
     text-decoration: none;
@@ -171,6 +185,7 @@ nav ul li a {
     border-radius: 4px;
 }
 
+/* Quando passa por cima do link da lista */
 nav ul li a:hover {
     background-color: var(--nav-hover-bg);
     color: var(--nav-hover-color);
@@ -181,6 +196,7 @@ nav ul li a:hover {
     color: var(--esp-color);
 }
 
+/* Quando passa por cima do link especial da lista */
 nav ul li #esp:hover {
     background-color: var(--esp-hover-bg);
     color: var(--esp-hover-color);
@@ -188,6 +204,7 @@ nav ul li #esp:hover {
 
 /* === Botão de Tema === */
 
+/* Estilos para o botão de tema */
 .theme-button {
     color: var(--nav-link-color);
     text-decoration: none;
@@ -200,16 +217,18 @@ nav ul li #esp:hover {
         color 0.3s;
 }
 
+/* Quando passa por cima do botão de tema */
 .theme-button:hover {
     background-color: var(--nav-hover-bg);
     color: var(--nav-hover-color);
 }
 
-/* ::after insere o texto do botão via CSS, evitando JS para trocar o label */
+/* ::after insere o texto do botão via CSS */
 .theme-button::after {
     content: "Escuro";
 }
 
+/* Quando o toggle de tema está marcado (ou seja, tema escuro) */
 #theme-toggle:checked ~ .theme-root .theme-button::after {
     content: "Claro";
 }
@@ -228,11 +247,13 @@ nav ul li #esp:hover {
 
 /* === Tabelas === */
 
+/* Estilos para a tabela */
 table {
     border-style: solid;
     margin: 16px auto;
 }
 
+/* Estilos para as células da tabela */
 table td,
 th {
     width: clamp(50px, 10vw, 100px);
@@ -240,13 +261,14 @@ th {
     padding: 4px;
 }
 
+/* Estilos para as células da tabela no body */
 tbody tr td {
     color: var(--tbody-td-color);
 }
 
 /* === Seção 1 — Tipos de Funções === */
 
-/* Container que agrupa tabela e gráfico lado a lado, quebrando em telas menores */
+/* Container que agrupa tabela e gráfico lado a lado */
 .tabela-grafico {
     display: flex;
     flex-wrap: wrap;
@@ -263,28 +285,33 @@ tbody tr td {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Transição para o efeito de expansão (aumenta o flex-grow / max-width) */
     transition:
         flex-grow 0.3s ease,
         max-width 0.3s ease;
 }
 
+/* Quando passa por cima do link da tabela / gráfico */
 .tabela-grafico a:hover {
     flex-grow: 10;
     max-width: 100%;
 }
 
+/* Imagem dentro do link da tabela / gráfico */
 .tabela-grafico img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: contain;
 }
 
+/* Quando passa por cima da imagem dentro do link da tabela / gráfico */
 .tabela-grafico img:hover {
     aspect-ratio: auto;
 }
 
 /* === Voltar ao Topo === */
 
+/* Estilos para o link "Voltar ao Topo" */
 .voltar-topo {
     display: block;
     text-align: center;
@@ -294,6 +321,7 @@ tbody tr td {
     text-decoration: none;
 }
 
+/* Quando passa por cima do link "Voltar ao Topo" */
 .voltar-topo:hover {
     text-decoration: underline solid;
     text-decoration-color: var(--link-hover);
@@ -301,11 +329,12 @@ tbody tr td {
 
 /* === Seção 2 — Galeria === */
 
+/* Container para a galeria de imagens */
 #galeria {
     padding: 16px 0;
 }
 
-/* Mesma lógica de expansão no hover da seção 1, mas com figure + sombra */
+/* Grid para a galeria de imagens */
 .galeria-grid {
     display: flex;
     flex-wrap: wrap;
@@ -314,6 +343,7 @@ tbody tr td {
     margin: 24px 0;
 }
 
+/* figure dentro da galeria de imagens */
 .galeria-grid figure {
     flex: 1 1 clamp(150px, 30vw, 280px);
     max-width: clamp(150px, 40vw, 280px);
@@ -327,6 +357,7 @@ tbody tr td {
         max-width 0.3s ease;
 }
 
+/* Mesma lógica de expansão no hover da seção 1 (tabela-grafico), mas com figure + sombra */
 .galeria-grid figure:hover {
     flex-grow: 10;
     max-width: 100%;
@@ -334,6 +365,7 @@ tbody tr td {
     box-shadow: 0 0 8px var(--text-shadow);
 }
 
+/* Imagem dentro da galeria de imagens */
 .galeria-grid img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -341,16 +373,19 @@ tbody tr td {
     border-radius: 4px;
 }
 
+/* Quando passa por cima da imagem dentro da galeria de imagens */
 .galeria-grid figure:hover img {
     object-fit: contain;
 }
 
+/* Legenda dentro da galeria de imagens */
 .galeria-grid figcaption {
     color: var(--text-color);
     font-size: 13px;
     margin-top: 8px;
 }
 
+/* iframe dentro da galeria de imagens */
 #galeria iframe {
     display: block;
     margin: 0 auto;
@@ -360,19 +395,23 @@ tbody tr td {
 
 /* === Referências === */
 
+/* Container para a lista de referências */
 #referencias {
     margin: 16px auto;
     max-width: 600px;
 }
 
+/* Lista de referências */
 #referencias li {
     margin-bottom: 6px;
 }
 
+/* Links dentro da lista de referências */
 #referencias a {
     color: var(--text-color);
 }
 
+/* Quando passa por cima dos links dentro da lista de referências */
 #referencias a:hover {
     text-decoration: underline dotted;
     text-decoration-color: var(--link-hover);
@@ -381,6 +420,7 @@ tbody tr td {
 
 /* === Footer === */
 
+/* Estilos para o rodapé */
 footer {
     font-size: clamp(10px, 1.2vw, 13px);
     text-align: center;
@@ -389,10 +429,12 @@ footer {
     margin-top: 32px;
 }
 
+/* Links dentro do rodapé */
 footer a {
     color: var(--text-color);
 }
 
+/* Quando passa por cima dos links dentro do rodapé */
 footer a:hover {
     text-decoration: underline dotted;
     text-decoration-color: var(--link-hover);
