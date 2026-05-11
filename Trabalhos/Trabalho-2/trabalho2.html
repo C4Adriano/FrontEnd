@@ -16,10 +16,28 @@
     </head>
     <body>
         <input type="checkbox" id="theme-toggle" hidden />
+        <input type="radio" name="font-size" id="font-1" hidden />
+        <input type="radio" name="font-size" id="font-2" hidden />
+        <input type="radio" name="font-size" id="font-3" hidden />
+        <input type="radio" name="font-size" id="font-4" hidden checked />
+        <input type="radio" name="font-size" id="font-5" hidden />
+        <input type="radio" name="font-size" id="font-6" hidden />
+        <input type="radio" name="font-size" id="font-7" hidden />
         <div class="theme-root">
             <div class="site-content">
                 <header id="topo">
-                    <div id="menu"><label for="theme-toggle" class="theme-button">Tema </label></div>
+                    <div id="menu">
+                        <label for="theme-toggle" class="theme-button">Tema </label>
+                        <div class="font-controls">
+                            <label for="font-1" class="font-button" style="font-size: 0.6em">A</label>
+                            <label for="font-2" class="font-button" style="font-size: 0.7em">A</label>
+                            <label for="font-3" class="font-button" style="font-size: 0.85em">A</label>
+                            <label for="font-4" class="font-button" style="font-size: 1em">A</label>
+                            <label for="font-5" class="font-button" style="font-size: 1.15em">A</label>
+                            <label for="font-6" class="font-button" style="font-size: 1.3em">A</label>
+                            <label for="font-7" class="font-button" style="font-size: 1.5em">A</label>
+                        </div>
+                    </div>
                     <div id="header-titulo">
                         <a
                             href="https://pt.vecteezy.com/arte-vetorial/47628948-matematica-funcao-simbolo-marca-dentro-preenchidas-estilo">
@@ -35,7 +53,7 @@
                     <ul>
                         <li><a href="#topo">Funções Matemáticas</a></li>
                         <li><a href="#const">Funções Constantes</a></li>
-                        <li><a id="esp" href="#poli">Funções Polinomiais</a></li>
+                        <li><a class="esp" href="#poli">Funções Polinomiais</a></li>
                         <li><a href="#naopoli">Funções não Polinomiais</a></li>
                         <li><a href="#trig">Funções Trigonométricas</a></li>
                         <li><a href="#galeria">Galeria</a></li>
@@ -92,53 +110,55 @@
                             </a>
                         </div>
 
-                        <h3 id="poli">Funções Polinomiais</h3>
-                        <p>
-                            Funções Polinomiais são as funções mais básicas, no qual, o x está elevado a algum expoente
-                            (polinômio)
-                        </p>
-                        <p>Por exemplo: <em>'ƒ(x) = ax² + bx + c'</em></p>
-                        <div class="tabela-grafico">
-                            <table>
-                                <caption>
-                                    ƒ(x) = x² + 2x + 3
-                                </caption>
-                                <thead>
-                                    <tr>
-                                        <th>X</th>
-                                        <th>Y</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>-2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>-1</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>0</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="https://www.desmos.com/calculator?lang=pt-BR">
-                                <img
-                                    src="IMG/poli.png"
-                                    alt="Gráfico da função polinomial"
-                                    title="Gráfico"
-                                    height="300" />
-                            </a>
+                        <div class="esp">
+                            <h3 id="poli">Funções Polinomiais</h3>
+                            <p>
+                                Funções Polinomiais são as funções mais básicas, no qual, o x está elevado a algum
+                                expoente (polinômio)
+                            </p>
+                            <p>Por exemplo: <em>'ƒ(x) = ax² + bx + c'</em></p>
+                            <div class="tabela-grafico">
+                                <table>
+                                    <caption>
+                                        ƒ(x) = x² + 2x + 3
+                                    </caption>
+                                    <thead>
+                                        <tr>
+                                            <th>X</th>
+                                            <th>Y</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>-2</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>-1</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>15</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="https://www.desmos.com/calculator?lang=pt-BR">
+                                    <img
+                                        src="IMG/poli.png"
+                                        alt="Gráfico da função polinomial"
+                                        title="Gráfico"
+                                        height="300" />
+                                </a>
+                            </div>
                         </div>
 
                         <h3 id="naopoli">Funções não Polinomiais</h3>

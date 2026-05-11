@@ -7,41 +7,141 @@ Texto: purple / red
 Background: white / black
 */
 
+/* Ordem de prioridade:
+class > id > tag > universal
+externo > interno
+
+Exemplo:
+1.
+--main-link-hover-sec-color
+"main" = class (todos estão contidos em main)
+"link" = id (somente os links dentro do main)
+"hover" = tag (só os que estão hover)
+"sec-color" = universal (é o que vai mudar)
+
+2.
+--body-bg
+"body" = class (todos estão contidos em body)
+"bg" = universal (é o que vai mudar)
+*/
+
+/* Variáveis externas:
+Conteúdos
+--global-* = global (reutilizável em todo o site)
+--*-header-* = header
+--*-nav-* = nav
+--*-main-* = conteúdo principal
+--*-footer-* = rodapé
+
+Estética
+--*-bg-* = background
+--*-color-* = cor
+--*-shadow-* = sombra
+--*-border-* = borda
+
+Letras
+--*-text-* = texto (p)
+--*-title-* = títulos (h1, h2, h3)
+--*-link-* = links
+--*-hover-* = hover
+
+Layout
+--*-height-* = altura
+--*-width-* = largura
+--*-space-* = espaçamento (gap, padding, margin)
+--*-radius-* = border-radius
+--*-z-* = z-index
+--*-speed-* = velocidade de transição
+
+Tipografia
+--*-font-* = tamanho de fonte (clamp ou px)
+*/
+
 /* === Variáveis e Tema === */
 
 /* Tema claro (padrão) */
 :root {
-    /* Declaração de variáveis em CSS */
+    /* --- Cores globais --- */
     --bg-color: white;
     --text-color: purple;
     --text-shadow: rgba(128, 0, 128, 0.5);
-    --header-color: red;
+    --title-color: red;
+    --table-body-color: aquamarine;
+    --link-hover-color: blue;
+
+    /* --- Cores da Nav --- */
     --nav-bg: #f0f0f0;
     --nav-link-color: purple;
-    --nav-hover-bg: purple;
-    --nav-hover-color: white;
-    --esp-color: aquamarine;
-    --esp-hover-bg: aqua;
-    --esp-hover-color: black;
-    --tbody-td-color: aquamarine;
-    --link-hover: blue;
+    --nav-link-hover-bg: purple;
+    --nav-link-hover-color: white;
+
+    /* --- Cores especiais (.esp) --- */
+    --esp-text-color: aquamarine;
+    --esp-title-color: aqua;
+    --esp-table-body-color: lightblue;
+    --esp-link-hover-bg: aqua;
+    --esp-link-hover-color: black;
+
+    /* --- Bordas --- */
+    --global-border-color: #ccc;
+    --global-radius-sm: 4px;
+    --global-radius-md: 6px;
+
+    /* --- Espaçamentos --- */
+    --global-space-xs: 4px;
+    --global-space-sm: 8px;
+    --global-space-md: 16px;
+    --global-space-lg: 24px;
+    --global-space-xl: 32px;
+
+    /* --- Animação --- */
+    --global-speed: 0.3s;
+
+    /* --- Layout --- */
+    --site-width: 1200px;
+    --nav-height: 65px;
+    --global-z-nav: 999;
+
+    /* --- Tipografia --- */
+    --font-scale: 1;
+
+    /* Os clamp() usam "em" que escalam com --font-scale */
+    --font-h1: clamp(1.5em, 5vw, 3em);
+    --font-h2: clamp(1.25em, 3.5vw, 2em);
+    --font-h3: clamp(1em, 2.5vw, 1.5em);
+    --font-logo: clamp(3em, 8vw, 5em);
+    --font-sm: clamp(0.625em, 1.2vw, 0.8125em);
+
+    /* --- Cards (tabela-grafico e galeria-grid) --- */
+    --card-min: 150px;
+    --card-base: 280px;
 }
 
 /* Tema escuro: ativado pelo checkbox #theme-toggle via seletor de irmão (~) */
 #theme-toggle:checked ~ .theme-root {
+    /* --- Cores globais --- */
     --bg-color: black;
     --text-color: red;
     --text-shadow: rgba(211, 211, 211, 0.5);
-    --header-color: purple;
+    --title-color: purple;
+    --table-body-color: aqua;
+    --link-hover-color: lightblue;
+
+    /* --- Cores da Nav --- */
     --nav-bg: #333;
     --nav-link-color: red;
-    --nav-hover-bg: red;
-    --nav-hover-color: black;
-    --esp-color: aqua;
-    --esp-hover-bg: aquamarine;
-    --esp-hover-color: white;
-    --tbody-td-color: aqua;
-    --link-hover: lightblue;
+    --nav-link-hover-bg: red;
+    --nav-link-hover-color: black;
+
+    /* --- Cores especiais (.esp) --- */
+    --esp-text-color: aqua;
+    --esp-title-color: aquamarine;
+    --esp-table-body-color: blue;
+    --esp-link-hover-bg: aquamarine;
+    --esp-link-hover-color: white;
+
+    /* --- Bordas --- */
+    --global-border-color: #555;
 }
 
 /* Inverte as cores das imagens no tema escuro para melhor contraste */
@@ -62,7 +162,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    /* Uso de variáveis em CSS */
     background-color: var(--bg-color);
     color: var(--text-color);
 }
@@ -76,10 +175,48 @@ body {
 
 /* Conteúdo principal do site */
 .site-content {
-    max-width: 1200px;
+    max-width: var(--site-width);
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 var(--global-space-md);
 }
+
+/* === Fontes === */
+
+/* Botões de fonte */
+.font-button {
+    cursor: pointer;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
+    background-color: var(--nav-bg);
+    color: var(--nav-link-color);
+    transition:
+        background-color var(--global-speed),
+        color var(--global-speed);
+}
+
+.font-button:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+#font-1:checked ~ .theme-root label[for="font-1"],
+#font-2:checked ~ .theme-root label[for="font-2"],
+#font-3:checked ~ .theme-root label[for="font-3"],
+#font-4:checked ~ .theme-root label[for="font-4"],
+#font-5:checked ~ .theme-root label[for="font-5"],
+#font-6:checked ~ .theme-root label[for="font-6"],
+#font-7:checked ~ .theme-root label[for="font-7"] {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+#font-1:checked ~ .theme-root { font-size: 70%;  }
+#font-2:checked ~ .theme-root { font-size: 80%;  }
+#font-3:checked ~ .theme-root { font-size: 90%;  }
+/* font-4 é o padrão (100%), então não precisa de regra */
+#font-5:checked ~ .theme-root { font-size: 115%; }
+#font-6:checked ~ .theme-root { font-size: 130%; }
+#font-7:checked ~ .theme-root { font-size: 150%; }
 
 /* === Títulos === */
 
@@ -87,22 +224,22 @@ body {
 h1,
 h2,
 h3 {
-    color: var(--header-color);
+    color: var(--title-color);
     text-decoration: underline;
     text-align: center;
 }
 
-/* clamp(mínimo, ideal, máximo): tamanho responsivo */
+/* clamp() centralizado nas variáveis: fácil de ajustar a escala tipográfica */
 h1 {
-    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-size: var(--font-h1);
 }
 
 h2 {
-    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    font-size: var(--font-h2);
 }
 
 h3 {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: var(--font-h3);
 }
 
 /* === Textos gerais === */
@@ -123,7 +260,7 @@ p::first-letter {
 /* Quando passa por cima do link */
 a:hover {
     text-decoration: underline;
-    color: var(--link-hover);
+    color: var(--link-hover-color);
 }
 
 /* === Header === */
@@ -131,13 +268,13 @@ a:hover {
 /* Alinhamento e padding (vertical, horizontal) */
 header {
     text-align: center;
-    padding: 24px 16px;
+    padding: var(--global-space-lg) var(--global-space-md);
 }
 
-/* Logo do header */
+/* Logo do header: tamanho vem da variável de tipografia */
 #logo {
-    height: clamp(48px, 8vw, 80px);
-    margin-bottom: 12px;
+    height: var(--font-logo);
+    margin-bottom: var(--global-space-sm);
 }
 
 /* Flex box no header com o logo */
@@ -145,14 +282,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: var(--global-space-sm);
 }
 
 /* Botão de tema: absolute para que fique no canto superior direito */
 #menu {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: var(--global-space-md);
+    right: var(--global-space-md);
 }
 
 /* === Nav === */
@@ -160,10 +297,10 @@ header {
 /* sticky: fica no fluxo normal até o scroll chegar, aí gruda no topo */
 nav {
     background-color: var(--nav-bg);
-    padding: 8px 0;
+    padding: var(--global-space-sm) 0;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: var(--global-z-nav);
 }
 
 /* Flex box na lista de links da navegação */
@@ -171,7 +308,7 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: var(--global-space-sm);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -181,25 +318,57 @@ nav ul {
 nav ul li a {
     color: var(--nav-link-color);
     text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 4px;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
+    /* Transição centralizada na variável --global-speed */
+    transition:
+        background-color var(--global-speed),
+        color var(--global-speed);
 }
 
 /* Quando passa por cima do link da lista */
 nav ul li a:hover {
-    background-color: var(--nav-hover-bg);
-    color: var(--nav-hover-color);
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
 }
 
-/* Link especial com cor e hover diferentes dos demais */
-#esp {
-    color: var(--esp-color);
+/* === Especial (.esp) === */
+
+/* Cor base dos elementos especiais */
+.esp {
+    color: var(--esp-text-color);
+}
+
+/* Estilos para os elementos especiais */
+.esp p,
+.esp ul,
+.esp table,
+.esp label,
+.esp a {
+    color: var(--esp-text-color);
+}
+
+/* Estilos para os títulos especiais */
+.esp h1,
+.esp h2,
+.esp h3 {
+    color: var(--esp-title-color);
+}
+
+/* Estilos para os links especiais */
+.esp a:hover {
+    color: var(--esp-link-hover-color);
+}
+
+/* Estilos para as células da tabela especial */
+.esp table tbody tr td {
+    color: var(--esp-table-body-color);
 }
 
 /* Quando passa por cima do link especial da lista */
-nav ul li #esp:hover {
-    background-color: var(--esp-hover-bg);
-    color: var(--esp-hover-color);
+nav ul li .esp:hover {
+    background-color: var(--esp-link-hover-bg);
+    color: var(--esp-link-hover-color);
 }
 
 /* === Botão de Tema === */
@@ -208,19 +377,19 @@ nav ul li #esp:hover {
 .theme-button {
     color: var(--nav-link-color);
     text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 4px;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
     background-color: var(--nav-bg);
     cursor: pointer;
     transition:
-        background-color 0.3s,
-        color 0.3s;
+        background-color var(--global-speed),
+        color var(--global-speed);
 }
 
 /* Quando passa por cima do botão de tema */
 .theme-button:hover {
-    background-color: var(--nav-hover-bg);
-    color: var(--nav-hover-color);
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
 }
 
 /* ::after insere o texto do botão via CSS */
@@ -235,14 +404,15 @@ nav ul li #esp:hover {
 
 /* === Âncoras === */
 
-/* Compensa a altura da nav sticky para os links internos não ficarem cobertos */
+/* Compensa a altura da nav sticky para os links internos não ficarem cobertos
+   --nav-height centraliza o valor: basta mudar aqui se a nav crescer */
 #topo,
 #const,
 #poli,
 #naopoli,
 #trig,
 #galeria {
-    scroll-margin-top: 65px;
+    scroll-margin-top: var(--nav-height);
 }
 
 /* === Tabelas === */
@@ -250,7 +420,7 @@ nav ul li #esp:hover {
 /* Estilos para a tabela */
 table {
     border-style: solid;
-    margin: 16px auto;
+    margin: var(--global-space-md) auto;
 }
 
 /* Estilos para as células da tabela */
@@ -258,12 +428,12 @@ table td,
 th {
     width: clamp(50px, 10vw, 100px);
     text-align: center;
-    padding: 4px;
+    padding: var(--global-space-xs);
 }
 
 /* Estilos para as células da tabela no body */
 tbody tr td {
-    color: var(--tbody-td-color);
+    color: var(--table-body-color);
 }
 
 /* === Seção 1 — Tipos de Funções === */
@@ -274,21 +444,21 @@ tbody tr td {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    margin: 16px 0;
+    gap: var(--global-space-md);
+    margin: var(--global-space-md) 0;
 }
 
-/* No hover, o item cresce e ocupa a linha inteira (flex-grow alto + max-width 100%) */
+/* --card-min e --card-base centralizam o tamanho dos cards:
+   o mesmo valor é reutilizado na .galeria-grid, então muda nos dois de uma vez */
 .tabela-grafico a {
-    flex: 1 1 clamp(150px, 30vw, 280px);
-    max-width: clamp(150px, 40vw, 280px);
+    flex: 1 1 clamp(var(--card-min), 30vw, var(--card-base));
+    max-width: clamp(var(--card-min), 40vw, var(--card-base));
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Transição para o efeito de expansão (aumenta o flex-grow / max-width) */
     transition:
-        flex-grow 0.3s ease,
-        max-width 0.3s ease;
+        flex-grow var(--global-speed) ease,
+        max-width var(--global-speed) ease;
 }
 
 /* Quando passa por cima do link da tabela / gráfico */
@@ -315,7 +485,7 @@ tbody tr td {
 .voltar-topo {
     display: block;
     text-align: center;
-    margin: 32px auto 8px auto;
+    margin: var(--global-space-xl) auto var(--global-space-sm) auto;
     color: var(--text-color);
     font-weight: bold;
     text-decoration: none;
@@ -324,14 +494,14 @@ tbody tr td {
 /* Quando passa por cima do link "Voltar ao Topo" */
 .voltar-topo:hover {
     text-decoration: underline solid;
-    text-decoration-color: var(--link-hover);
+    text-decoration-color: var(--link-hover-color);
 }
 
 /* === Seção 2 — Galeria === */
 
 /* Container para a galeria de imagens */
 #galeria {
-    padding: 16px 0;
+    padding: var(--global-space-md) 0;
 }
 
 /* Grid para a galeria de imagens */
@@ -339,22 +509,22 @@ tbody tr td {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
-    margin: 24px 0;
+    gap: var(--global-space-md);
+    margin: var(--global-space-lg) 0;
 }
 
-/* figure dentro da galeria de imagens */
+/* figure dentro da galeria: reutiliza --card-min e --card-base da seção 1 */
 .galeria-grid figure {
-    flex: 1 1 clamp(150px, 30vw, 280px);
-    max-width: clamp(150px, 40vw, 280px);
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 8px;
+    flex: 1 1 clamp(var(--card-min), 30vw, var(--card-base));
+    max-width: clamp(var(--card-min), 40vw, var(--card-base));
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-radius-md);
+    padding: var(--global-space-sm);
     text-align: center;
     margin: 0;
     transition:
-        flex-grow 0.3s ease,
-        max-width 0.3s ease;
+        flex-grow var(--global-speed) ease,
+        max-width var(--global-speed) ease;
 }
 
 /* Mesma lógica de expansão no hover da seção 1 (tabela-grafico), mas com figure + sombra */
@@ -362,7 +532,7 @@ tbody tr td {
     flex-grow: 10;
     max-width: 100%;
     border-color: var(--text-color);
-    box-shadow: 0 0 8px var(--text-shadow);
+    box-shadow: 0 0 var(--global-space-sm) var(--text-shadow);
 }
 
 /* Imagem dentro da galeria de imagens */
@@ -370,7 +540,7 @@ tbody tr td {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: var(--global-radius-sm);
 }
 
 /* Quando passa por cima da imagem dentro da galeria de imagens */
@@ -381,8 +551,8 @@ tbody tr td {
 /* Legenda dentro da galeria de imagens */
 .galeria-grid figcaption {
     color: var(--text-color);
-    font-size: 13px;
-    margin-top: 8px;
+    font-size: var(--font-sm);
+    margin-top: var(--global-space-sm);
 }
 
 /* iframe dentro da galeria de imagens */
@@ -397,13 +567,13 @@ tbody tr td {
 
 /* Container para a lista de referências */
 #referencias {
-    margin: 16px auto;
+    margin: var(--global-space-md) auto;
     max-width: 600px;
 }
 
 /* Lista de referências */
 #referencias li {
-    margin-bottom: 6px;
+    margin-bottom: var(--global-space-xs);
 }
 
 /* Links dentro da lista de referências */
@@ -414,19 +584,19 @@ tbody tr td {
 /* Quando passa por cima dos links dentro da lista de referências */
 #referencias a:hover {
     text-decoration: underline dotted;
-    text-decoration-color: var(--link-hover);
-    color: var(--link-hover);
+    text-decoration-color: var(--link-hover-color);
+    color: var(--link-hover-color);
 }
 
 /* === Footer === */
 
-/* Estilos para o rodapé */
+/* Estilos para o rodapé: --font-sm reutilizado do figcaption */
 footer {
-    font-size: clamp(10px, 1.2vw, 13px);
+    font-size: var(--font-sm);
     text-align: center;
-    padding: 16px;
-    border-top: 1px solid #ccc;
-    margin-top: 32px;
+    padding: var(--global-space-md);
+    border-top: 1px solid var(--global-border-color);
+    margin-top: var(--global-space-xl);
 }
 
 /* Links dentro do rodapé */
@@ -437,6 +607,6 @@ footer a {
 /* Quando passa por cima dos links dentro do rodapé */
 footer a:hover {
     text-decoration: underline dotted;
-    text-decoration-color: var(--link-hover);
-    color: var(--link-hover);
+    text-decoration-color: var(--link-hover-color);
+    color: var(--link-hover-color);
 }
