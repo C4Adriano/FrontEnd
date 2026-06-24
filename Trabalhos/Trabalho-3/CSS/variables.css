@@ -3,28 +3,28 @@
 /* Tema claro (padrão) */
 :root {
     /* --- Cores globais --- */
-    --bg-color: white;
-    --text-color: purple;
-    --text-shadow: rgba(128, 0, 128, 0.5);
-    --title-color: red;
-    --table-body-color: aquamarine;
-    --link-hover-color: blue;
+    --bg-color: #ffffff;
+    --text-color: #800080;
+    --text-shadow: #80008080;
+    --title-color: #ff0000;
+    --table-body-color: #0a5732;
+    --link-hover-color: #0000ff;
 
     /* --- Cores da Nav --- */
     --nav-bg: #f0f0f0;
-    --nav-link-color: purple;
-    --nav-link-hover-bg: purple;
-    --nav-link-hover-color: white;
+    --nav-link-color: #800080;
+    --nav-link-hover-bg: #800080;
+    --nav-link-hover-color: #ffffff;
 
     /* --- Cores especiais (.special) --- */
-    --special-text-color: aquamarine;
-    --special-title-color: aqua;
-    --special-table-body-color: lightblue;
-    --special-link-hover-bg: aqua;
+    --special-text-color: #0a5732;
+    --special-title-color: #004d4d;
+    --special-table-body-color: #add8e6;
+    --special-link-hover-bg: #004d4d;
     --special-link-hover-color: black;
 
     /* --- Bordas --- */
-    --global-border-color: #ccc;
+    --global-border-color: #cccccc;
     --global-radius-sm: 4px;
     --global-radius-md: 6px;
 
@@ -61,28 +61,28 @@
 /* Tema escuro: ativado pelo checkbox #theme-toggle via seletor de irmão (~) */
 #theme-toggle:checked ~ .theme-root {
     /* --- Cores globais --- */
-    --bg-color: black;
-    --text-color: red;
-    --text-shadow: rgba(211, 211, 211, 0.5);
-    --title-color: purple;
-    --table-body-color: aqua;
-    --link-hover-color: lightblue;
+    --bg-color: #000000;
+    --text-color: #ff0000;
+    --text-shadow: #d3d3d380;
+    --title-color: #800080;
+    --table-body-color: #5dc0c0;
+    --link-hover-color: #add8e6;
 
     /* --- Cores da Nav --- */
-    --nav-bg: #333;
-    --nav-link-color: red;
-    --nav-link-hover-bg: red;
-    --nav-link-hover-color: black;
+    --nav-bg: #333333;
+    --nav-link-color: #ff0000;
+    --nav-link-hover-bg: #ff0000;
+    --nav-link-hover-color: #000000;
 
     /* --- Cores especiais (.special) --- */
-    --special-text-color: aqua;
-    --special-title-color: aquamarine;
-    --special-table-body-color: blue;
-    --special-link-hover-bg: aquamarine;
-    --special-link-hover-color: white;
+    --special-text-color: #5dc0c0;
+    --special-title-color: #0a5732;
+    --special-table-body-color: #0000ff;
+    --special-link-hover-bg: #0a5732;
+    --special-link-hover-color: #ffffff;
 
     /* --- Bordas --- */
-    --global-border-color: #555;
+    --global-border-color: #555555;
 }
 
 /* === Tema === */
