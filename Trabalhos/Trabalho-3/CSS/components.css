@@ -1,0 +1,246 @@
+/* === Especial (.special) === */
+
+/* Cor base dos elementos especiais */
+.special {
+    color: var(--special-text-color);
+}
+
+/* Estilos para os elementos especiais */
+.special p,
+.special ul,
+.special table,
+.special label,
+.special a {
+    color: var(--special-text-color);
+}
+
+/* Estilos para os títulos especiais */
+.special h1,
+.special h2,
+.special h3 {
+    color: var(--special-title-color);
+}
+
+/* Estilos para os links especiais */
+.special a:hover {
+    color: var(--special-link-hover-color);
+}
+
+/* Estilos para as células da tabela especial */
+.special table tbody tr td {
+    color: var(--special-table-body-color);
+}
+
+/* Quando passa por cima do link especial da lista */
+nav ul li .special:hover {
+    background-color: var(--special-link-hover-bg);
+    color: var(--special-link-hover-color);
+}
+/* === Seção 1 — Tipos de Funções === */
+
+/* Container que agrupa tabela e gráfico lado a lado */
+.graph-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--global-space-md);
+    margin: var(--global-space-md) 0;
+}
+
+/* --card-min e --card-base centralizam o tamanho dos cards.
+    O mesmo valor é reutilizado na .gallery-grid, então muda nos dois de uma vez */
+.graph-table a {
+    flex: 1 1 clamp(var(--card-min), 30vw, var(--card-base));
+    max-width: clamp(var(--card-min), 40vw, var(--card-base));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        flex-grow var(--global-speed) ease,
+        max-width var(--global-speed) ease;
+}
+
+/* Quando passa por cima do link da tabela / gráfico */
+.graph-table a:hover {
+    flex-grow: 10;
+    max-width: 100%;
+}
+
+/* Imagem dentro do link da tabela / gráfico */
+.graph-table img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+
+/* Quando passa por cima da imagem dentro do link da tabela / gráfico */
+.graph-table img:hover {
+    aspect-ratio: auto;
+}
+
+/* === Seção 2 — Galeria === */
+
+/* Container para a gallery de imagens */
+#gallery {
+    padding: var(--global-space-md) 0;
+}
+
+/* Grid para a gallery de imagens */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--global-space-md);
+    margin: var(--global-space-lg) 0;
+}
+
+/* figure dentro da gallery: reutiliza --card-min e --card-base da seção 1 */
+.gallery-grid figure {
+    flex: 1 1 clamp(var(--card-min), 30vw, var(--card-base));
+    max-width: clamp(var(--card-min), 40vw, var(--card-base));
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-radius-md);
+    padding: var(--global-space-sm);
+    text-align: center;
+    margin: 0;
+    transition:
+        flex-grow var(--global-speed) ease,
+        max-width var(--global-speed) ease;
+}
+
+/* Mesma lógica de expansão no hover da seção 1 (graph-table), mas com figure + sombra */
+.gallery-grid figure:hover {
+    flex-grow: 10;
+    max-width: 100%;
+    border-color: var(--text-color);
+    box-shadow: 0 0 var(--global-space-sm) var(--text-shadow);
+}
+
+/* Imagem dentro da gallery de imagens */
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--global-radius-sm);
+}
+
+/* Quando passa por cima da imagem dentro da gallery de imagens */
+.gallery-grid figure:hover img {
+    object-fit: contain;
+}
+
+/* Legenda dentro da gallery de imagens */
+.gallery-grid figcaption {
+    color: var(--text-color);
+    font-size: var(--font-sm);
+    margin-top: var(--global-space-sm);
+}
+
+/* iframe dentro da gallery de imagens */
+#gallery iframe {
+    display: block;
+    margin: 0 auto;
+    width: clamp(280px, 80vw, 560px);
+    height: clamp(160px, 45vw, 315px);
+}
+
+/* === Ícones SVG === */
+
+.external::after,
+.download::after,
+.back-top::before,
+.back-top::after {
+    content: "";
+    display: inline-block;
+
+    background-color: currentColor;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    transition: transform 0.3s ease;
+}
+
+/* === Link Externo === */
+
+.external::after {
+    width: 0.75em;
+    height: 0.75em;
+
+    margin-left: 0.15em;
+    vertical-align: 0.05em;
+
+    -webkit-mask-image: url("../icons/external-link.svg");
+    mask-image: url("../icons/external-link.svg");
+}
+
+.external:hover::after {
+    transform: translate(2px, -2px);
+}
+
+/* === Download === */
+
+.download::after {
+    width: 0.75em;
+    height: 0.75em;
+
+    margin-left: 0.15em;
+    vertical-align: 0.05em;
+
+    -webkit-mask-image: url("../icons/download.svg");
+    mask-image: url("../icons/download.svg");
+}
+
+.download:hover::after {
+    transform: translateY(2px);
+}
+
+/* === Voltar ao Topo === */
+
+.back-top {
+    display: block;
+    text-align: center;
+    margin: var(--global-space-xl) auto var(--global-space-sm) auto;
+
+    color: var(--text-color);
+
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+.back-top:hover {
+    text-decoration: underline solid;
+    text-decoration-color: var(--link-hover-color);
+}
+
+.back-top::before,
+.back-top::after {
+    width: 0.9em;
+    height: 0.9em;
+
+    -webkit-mask-image: url("../icons/arrow-up.svg");
+    mask-image: url("../icons/arrow-up.svg");
+}
+
+.back-top::before {
+    margin-right: var(--global-space-xs);
+}
+
+.back-top::after {
+    margin-left: var(--global-space-xs);
+}
+
+.back-top:hover::before,
+.back-top:hover::after {
+    transform: translateY(-3px);
+}

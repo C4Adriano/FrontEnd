@@ -1,0 +1,106 @@
+/* === Header === */
+
+/* Alinhamento e padding (vertical, horizontal) */
+header {
+    text-align: center;
+    padding: var(--global-space-lg) var(--global-space-md);
+}
+
+/* Logo do header: tamanho vem da variável de tipografia */
+#logo {
+    height: var(--font-logo);
+    margin-bottom: var(--global-space-sm);
+}
+
+/* Flex box no header com o logo */
+#header-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--global-space-sm);
+}
+
+/* Botão de tema: absolute para que fique no canto superior direito */
+#menu {
+    position: absolute;
+    top: var(--global-space-md);
+    right: var(--global-space-md);
+}
+
+/* === Nav === */
+
+/* sticky: fica no fluxo normal até o scroll chegar, aí gruda no topo */
+nav {
+    background-color: var(--nav-bg);
+    padding: var(--global-space-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: var(--global-z-nav);
+}
+
+/* Flex box na lista de links da navegação */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--global-space-sm);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para os links da navegação */
+nav ul li a {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
+    /* Transição centralizada na variável --global-speed */
+    transition:
+        background-color var(--global-speed),
+        color var(--global-speed);
+}
+
+/* Quando passa por cima do link da lista */
+nav ul li a:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+/* === Âncoras === */
+
+/* Compensa a altura da nav sticky para os links internos não ficarem cobertos
+   --nav-height centraliza o valor: basta mudar aqui se a nav crescer */
+#top,
+#const,
+#poly,
+#non-poly,
+#trig,
+#gallery {
+    scroll-margin-top: var(--nav-height);
+}
+
+/* === Referências === */
+
+/* Container para a lista de referências */
+#referencias {
+    margin: var(--global-space-md) auto;
+    max-width: 600px;
+}
+
+/* Lista de referências */
+#referencias li {
+    margin-bottom: var(--global-space-xs);
+}
+
+/* Links dentro da lista de referências */
+#referencias a {
+    color: var(--text-color);
+}
+
+/* Quando passa por cima dos links dentro da lista de referências */
+#referencias a:hover {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--link-hover-color);
+    color: var(--link-hover-color);
+}

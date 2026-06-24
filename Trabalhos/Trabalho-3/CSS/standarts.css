@@ -1,0 +1,58 @@
+/* Cores base (primário / secundário):
+Principal: red / purple
+Secundária: purple / red
+Complementar: aquamarine / aqua
+Link: blue / lightblue
+Texto: purple / red
+Background: white / black
+*/
+
+/* Ordem de prioridade:
+class > id > tag > universal
+externo > interno
+
+Exemplo:
+1.
+--main-link-hover-sec-color
+"main" = class (todos estão contidos em main)
+"link" = id (somente os links dentro do main)
+"hover" = tag (só os que estão hover)
+"sec-color" = universal (é o que vai mudar)
+
+2.
+--body-bg
+"body" = class (todos estão contidos em body)
+"bg" = universal (é o que vai mudar)
+*/
+
+/* Variáveis externas:
+Conteúdos
+--global-* = global (reutilizável em todo o site)
+--*-header-* = header
+--*-nav-* = nav
+--*-main-* = conteúdo principal
+--*-footer-* = rodapé
+
+Estética
+--*-bg-* = background
+--*-color-* = cor
+--*-shadow-* = sombra
+--*-border-* = borda
+
+Letras
+--*-text-* = texto (p)
+--*-title-* = títulos (h1, h2, h3)
+--*-link-* = links
+--*-hover-* = hover
+
+Layout
+--*-height-* = altura
+--*-width-* = largura
+--*-space-* = espaçamento (gap, padding, margin)
+--*-radius-* = border-radius
+--*-z-* = z-index
+--*-speed-* = velocidade de transição
+
+Tipografia
+--*-font-* = tamanho de fonte (clamp ou px)
+*/

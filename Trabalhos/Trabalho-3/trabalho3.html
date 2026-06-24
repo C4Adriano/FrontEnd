@@ -16,14 +16,14 @@
         <meta property="og:description" content="Trabalho 3 de FrontEnd" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://c4adriano.github.io/FrontEnd/Trabalhos/Trabalho-2/trabalho2.html" />
+        <meta name="twitter:url" content="https://c4adriano.github.io/FrontEnd/Trabalhos/Trabalho-3/trabalho3.html" />
         <meta name="twitter:title" content="Trabalho 3" />
         <meta name="twitter:description" content="Trabalho 3 de FrontEnd" />
 
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" />
-        <link rel="stylesheet" href="CSS/style.css" />
+        <link rel="stylesheet" href="CSS/main.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -32,6 +32,7 @@
     </head>
     <body>
         <input type="checkbox" id="theme-toggle" hidden />
+        <input type="checkbox" id="text-transform-toggle" hidden />
         <input type="radio" name="font-size" id="font-1" hidden />
         <input type="radio" name="font-size" id="font-2" hidden />
         <input type="radio" name="font-size" id="font-3" hidden />
@@ -41,9 +42,10 @@
         <input type="radio" name="font-size" id="font-7" hidden />
         <div class="theme-root">
             <div class="site-content">
-                <header id="topo">
+                <header id="top">
                     <div id="menu">
                         <label for="theme-toggle" class="theme-button">Tema</label>
+                        <label for="text-transform-toggle" class="text-transform-button">Texto</label>
                         <div class="font-controls">
                             <label for="font-1" class="font-button" style="font-size: 0.6em">A</label>
                             <label for="font-2" class="font-button" style="font-size: 0.7em">A</label>
@@ -54,39 +56,47 @@
                             <label for="font-7" class="font-button" style="font-size: 1.5em">A</label>
                         </div>
                     </div>
-                    <div id="header-titulo">
+                    <div id="header-title">
                         <a
                             href="https://pt.vecteezy.com/arte-vetorial/47628948-matematica-funcao-simbolo-marca-dentro-preenchidas-estilo">
                             <img src="IMG/logo.png" alt="Logotipo Funções Matemáticas" id="logo" />
                         </a>
                         <h1>Funções Matemáticas</h1>
                     </div>
-                    <p>Funções Matemáticas são relações entre um x e um y</p>
-                    <p>Obs.: ƒ(x) é igual a y</p>
+                    <p>
+                        Funções Matemáticas são relações entre um
+                        <var>x</var>
+                        e um
+                        <var>y</var>
+                    </p>
+                    <p>
+                        Obs.: ƒ(x) é igual a
+                        <var>y</var>
+                    </p>
                 </header>
 
                 <nav>
                     <ul>
-                        <li><a href="#topo">Funções Matemáticas</a></li>
+                        <li><a href="#top">Funções Matemáticas</a></li>
                         <li><a href="#const">Funções Constantes</a></li>
-                        <li><a class="esp" href="#poli">Funções Polinomiais</a></li>
-                        <li><a href="#naopoli">Funções não Polinomiais</a></li>
+                        <li><a class="special" href="#poly">Funções Polinomiais</a></li>
+                        <li><a href="#non-poly">Funções não Polinomiais</a></li>
                         <li><a href="#trig">Funções Trigonométricas</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
                     </ul>
                 </nav>
 
                 <main>
-                    <section id="tipos">
+                    <section id="types">
                         <h2>Tipos de Funções</h2>
 
                         <h3 id="const">Funções Constantes</h3>
-                        <p>Funções Constantes são um caso especial de função, no qual, o x não aparece</p>
+                        <p>As Funções Constantes são um caso especial de Função, no qual, o x não aparece</p>
                         <p>
                             Por exemplo:
                             <em>'ƒ(x) = c'</em>
                         </p>
-                        <div class="tabela-grafico">
+                        <div class="graph-table">
                             <table>
                                 <caption>ƒ(x) = 0</caption>
                                 <thead>
@@ -121,14 +131,14 @@
                             <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                 <img
                                     src="IMG/const.png"
-                                    alt="Gráfico da função constante"
-                                    title="Gráfico"
+                                    alt="Gráfico da Função Constante. Feito com Desmos"
+                                    title="Gráfico da Função Constante. Feito com Desmos"
                                     height="250" />
                             </a>
                         </div>
 
-                        <div class="esp">
-                            <h3 id="poli">Funções Polinomiais</h3>
+                        <div class="special">
+                            <h3 id="poly">Funções Polinomiais</h3>
                             <p>
                                 Funções Polinomiais são as funções mais básicas, no qual, o x está elevado a algum
                                 expoente (polinômio)
@@ -137,7 +147,7 @@
                                 Por exemplo:
                                 <em>'ƒ(x) = ax² + bx + c'</em>
                             </p>
-                            <div class="tabela-grafico">
+                            <div class="graph-table">
                                 <table>
                                     <caption>ƒ(x) = x² + 2x + 3</caption>
                                     <thead>
@@ -171,21 +181,21 @@
                                 </table>
                                 <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                     <img
-                                        src="IMG/poli.png"
-                                        alt="Gráfico da função polinomial"
-                                        title="Gráfico"
+                                        src="IMG/poly.png"
+                                        alt="Gráfico da Função Polinomial. Feito com Desmos"
+                                        title="Gráfico da Função Polinomial. Feito com Desmos"
                                         height="300" />
                                 </a>
                             </div>
                         </div>
 
-                        <h3 id="naopoli">Funções não Polinomiais</h3>
+                        <h3 id="non-poly">Funções não Polinomiais</h3>
                         <p>Funções não Polinomiais são as funções que não têm um polinômio, mas ainda têm x</p>
                         <p>
                             Por exemplo:
                             <em>'ƒ(x) = b · aˣ + c'</em>
                         </p>
-                        <div class="tabela-grafico">
+                        <div class="graph-table">
                             <table>
                                 <caption>ƒ(x) = 2ˣ</caption>
                                 <thead>
@@ -219,9 +229,9 @@
                             </table>
                             <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                 <img
-                                    src="IMG/naopoli.png"
-                                    alt="Gráfico da função não polinomial"
-                                    title="Gráfico"
+                                    src="IMG/non-poly.png"
+                                    alt="Gráfico da Função não Polinomial. Feito com Desmos"
+                                    title="Gráfico da Função não Polinomial. Feito com Desmos"
                                     height="300" />
                             </a>
                         </div>
@@ -234,7 +244,7 @@
                             <li>ƒ(x) = cos(x)</li>
                             <li>ƒ(x) = tan(x)</li>
                         </ul>
-                        <div class="tabela-grafico">
+                        <div class="graph-table">
                             <table>
                                 <caption>ƒ(x) = sen(x)</caption>
                                 <thead>
@@ -269,26 +279,26 @@
                             <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                 <img
                                     src="IMG/trig.png"
-                                    alt="Gráfico da função trigonométrica"
-                                    title="Gráfico"
+                                    alt="Gráfico da Função Trigonométrica. Feito com Desmos"
+                                    title="Gráfico da Função Trigonométrica. Feito com Desmos"
                                     height="200" />
                             </a>
                         </div>
 
-                        <p><a href="#topo" class="voltar-topo">↑ Voltar ao topo</a></p>
+                        <p><a href="#top" class="back-top">VOLTAR AO TOPO</a></p>
                     </section>
 
-                    <section id="galeria">
+                    <section id="gallery">
                         <h2>Galeria</h2>
                         <h3>Tudo sobre Funções</h3>
 
-                        <div class="galeria-grid">
+                        <div class="gallery-grid">
                             <figure>
                                 <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                     <img
                                         src="IMG/const.png"
-                                        alt="Gráfico da função constante"
-                                        title="Função Constante" />
+                                        alt="Gráfico da Função Constante. Feito com Desmos"
+                                        title="Função Constante. Feito com Desmos" />
                                 </a>
                                 <figcaption>Função Constante — ƒ(x) = c</figcaption>
                             </figure>
@@ -296,9 +306,9 @@
                             <figure>
                                 <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                     <img
-                                        src="IMG/poli.png"
-                                        alt="Gráfico da função polinomial"
-                                        title="Função Polinomial" />
+                                        src="IMG/poly.png"
+                                        alt="Gráfico da Função Polinomial. Feito com Desmos"
+                                        title="Função Polinomial. Feito com Desmos" />
                                 </a>
                                 <figcaption>Função Polinomial — ƒ(x) = ax² + bx + c</figcaption>
                             </figure>
@@ -306,9 +316,9 @@
                             <figure>
                                 <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                     <img
-                                        src="IMG/naopoli.png"
-                                        alt="Gráfico da função não polinomial"
-                                        title="Função Exponencial" />
+                                        src="IMG/non-poly.png"
+                                        alt="Gráfico da Função não Polinomial. Feito com Desmos"
+                                        title="Função não Polinomial. Feito com Desmos" />
                                 </a>
                                 <figcaption>Função Exponencial — ƒ(x) = 2ˣ</figcaption>
                             </figure>
@@ -316,9 +326,9 @@
                             <figure>
                                 <a href="https://www.desmos.com/calculator?lang=pt-BR">
                                     <img
-                                        src="IMG/trig.png"
-                                        alt="Gráfico da função trigonométrica"
-                                        title="Função Trigonométrica" />
+                                        src="../Trabalho-3/IMG/trig.png"
+                                        alt="Gráfico da Função Trigonométrica. Feito com Desmos"
+                                        title="Função Trigonométrica. Feito com Desmos" />
                                 </a>
                                 <figcaption>Função Trigonométrica — ƒ(x) = sen(x)</figcaption>
                             </figure>
@@ -346,11 +356,14 @@
                         <ul id="referencias">
                             <li>
                                 Gráficos gerados com
-                                <a href="https://www.desmos.com/calculator?lang=pt-BR">Desmos Graphing Calculator</a>
+                                <a class="external" href="https://www.desmos.com/calculator?lang=pt-BR">
+                                    Desmos Graphing Calculator
+                                </a>
                             </li>
                             <li>
                                 Logo:
                                 <a
+                                    class="external"
                                     href="https://pt.vecteezy.com/arte-vetorial/47628948-matematica-funcao-simbolo-marca-dentro-preenchidas-estilo">
                                     Matemática Função Símbolo — Vecteezy
                                 </a>
@@ -358,7 +371,9 @@
                             </li>
                             <li>
                                 Vídeo:
-                                <a href="https://www.youtube.com/watch?v=hIc5y6IXi-4">Funções Matemáticas — YouTube</a>
+                                <a class="external" href="https://www.youtube.com/watch?v=hIc5y6IXi-4">
+                                    Funções Matemáticas — YouTube
+                                </a>
                             </li>
                             <li>
                                 BRASIL. Ministério da Educação.
@@ -369,6 +384,7 @@
                                 <em>EM13MAT304</em>
                                 . p. 528 (livro) / p. 104 (PDF). Disponível em:
                                 <a
+                                    class="download"
                                     href="https://basenacionalcomum.mec.gov.br/images/historico/BNCC_EnsinoMedio_embaixa_site_110518.pdf">
                                     basenacionalcomum.mec.gov.br
                                 </a>
@@ -376,7 +392,7 @@
                             </li>
                         </ul>
 
-                        <p><a href="#topo" class="voltar-topo">↑ Voltar ao topo</a></p>
+                        <p><a href="#top" class="back-top">VOLTAR AO TOPO</a></p>
                     </section>
                 </main>
 

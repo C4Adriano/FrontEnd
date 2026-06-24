@@ -1,0 +1,208 @@
+/* === Variáveis === */
+
+/* Tema claro (padrão) */
+:root {
+    /* --- Cores globais --- */
+    --bg-color: white;
+    --text-color: purple;
+    --text-shadow: rgba(128, 0, 128, 0.5);
+    --title-color: red;
+    --table-body-color: aquamarine;
+    --link-hover-color: blue;
+
+    /* --- Cores da Nav --- */
+    --nav-bg: #f0f0f0;
+    --nav-link-color: purple;
+    --nav-link-hover-bg: purple;
+    --nav-link-hover-color: white;
+
+    /* --- Cores especiais (.special) --- */
+    --special-text-color: aquamarine;
+    --special-title-color: aqua;
+    --special-table-body-color: lightblue;
+    --special-link-hover-bg: aqua;
+    --special-link-hover-color: black;
+
+    /* --- Bordas --- */
+    --global-border-color: #ccc;
+    --global-radius-sm: 4px;
+    --global-radius-md: 6px;
+
+    /* --- Espaçamentos --- */
+    --global-space-xs: 4px;
+    --global-space-sm: 8px;
+    --global-space-md: 16px;
+    --global-space-lg: 24px;
+    --global-space-xl: 32px;
+
+    /* --- Animação --- */
+    --global-speed: 0.3s;
+
+    /* --- Layout --- */
+    --site-width: 1200px;
+    --nav-height: 65px;
+    --global-z-nav: 999;
+
+    /* --- Tipografia --- */
+    --font-scale: 1;
+
+    /* Os clamp() usam "em" que escalam com --font-scale */
+    --font-h1: clamp(1.5em, 5vw, 3em);
+    --font-h2: clamp(1.25em, 3.5vw, 2em);
+    --font-h3: clamp(1em, 2.5vw, 1.5em);
+    --font-logo: clamp(3em, 8vw, 5em);
+    --font-sm: clamp(0.625em, 1.2vw, 0.8125em);
+
+    /* --- Cards (graph-table e gallery-grid) --- */
+    --card-min: 150px;
+    --card-base: 280px;
+}
+
+/* Tema escuro: ativado pelo checkbox #theme-toggle via seletor de irmão (~) */
+#theme-toggle:checked ~ .theme-root {
+    /* --- Cores globais --- */
+    --bg-color: black;
+    --text-color: red;
+    --text-shadow: rgba(211, 211, 211, 0.5);
+    --title-color: purple;
+    --table-body-color: aqua;
+    --link-hover-color: lightblue;
+
+    /* --- Cores da Nav --- */
+    --nav-bg: #333;
+    --nav-link-color: red;
+    --nav-link-hover-bg: red;
+    --nav-link-hover-color: black;
+
+    /* --- Cores especiais (.special) --- */
+    --special-text-color: aqua;
+    --special-title-color: aquamarine;
+    --special-table-body-color: blue;
+    --special-link-hover-bg: aquamarine;
+    --special-link-hover-color: white;
+
+    /* --- Bordas --- */
+    --global-border-color: #555;
+}
+
+/* === Tema === */
+
+/* Inverte as cores das imagens no tema escuro para melhor contraste */
+#theme-toggle:checked ~ .theme-root img {
+    filter: invert(1);
+}
+
+/* Estilos para o botão de tema */
+.theme-button {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
+    background-color: var(--nav-bg);
+    cursor: pointer;
+    transition:
+        background-color var(--global-speed),
+        color var(--global-speed);
+}
+
+/* Quando passa por cima do botão de tema */
+.theme-button:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+/* ::after insere o texto do botão via CSS */
+.theme-button::after {
+    content: " Escuro";
+}
+
+/* Quando o toggle de tema está marcado (ou seja, tema escuro) */
+#theme-toggle:checked ~ .theme-root .theme-button::after {
+    content: " Claro";
+}
+
+/* === Texto === */
+
+/* Texto em maiúsculo */
+#text-transform-toggle:checked ~ .theme-root {
+    text-transform: uppercase;
+}
+
+/* Estilos para o botão de tema */
+.text-transform-button {
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
+    background-color: var(--nav-bg);
+    cursor: pointer;
+    transition:
+        background-color var(--global-speed),
+        color var(--global-speed);
+}
+
+/* Quando passa por cima do botão de tema */
+.text-transform-button:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+/* ::after insere o texto do botão via CSS */
+.text-transform-button::after {
+    content: " Maiúsculo";
+}
+
+/* Quando o toggle de texto está marcado (ou seja, texto maiúsculo) */
+#text-transform-toggle:checked ~ .theme-root .text-transform-button::after {
+    content: " Normal";
+}
+
+/* === Fontes === */
+
+/* Botões de fonte */
+.font-button {
+    cursor: pointer;
+    padding: var(--global-space-xs) var(--global-space-sm);
+    border-radius: var(--global-radius-sm);
+    background-color: var(--nav-bg);
+    color: var(--nav-link-color);
+    transition:
+        background-color var(--global-speed),
+        color var(--global-speed);
+}
+
+.font-button:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+#font-1:checked ~ .theme-root label[for="font-1"],
+#font-2:checked ~ .theme-root label[for="font-2"],
+#font-3:checked ~ .theme-root label[for="font-3"],
+#font-4:checked ~ .theme-root label[for="font-4"],
+#font-5:checked ~ .theme-root label[for="font-5"],
+#font-6:checked ~ .theme-root label[for="font-6"],
+#font-7:checked ~ .theme-root label[for="font-7"] {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+}
+
+#font-1:checked ~ .theme-root {
+    font-size: 70%;
+}
+#font-2:checked ~ .theme-root {
+    font-size: 80%;
+}
+#font-3:checked ~ .theme-root {
+    font-size: 90%;
+}
+/* font-4 é o padrão (100%), então não precisa de regra */
+#font-5:checked ~ .theme-root {
+    font-size: 115%;
+}
+#font-6:checked ~ .theme-root {
+    font-size: 130%;
+}
+#font-7:checked ~ .theme-root {
+    font-size: 150%;
+}

@@ -1,0 +1,119 @@
+/* === Geral === */
+
+/* Fonte do Google Fonts - Roboto */
+html {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+/* body para padronizar; mesmo com o modern-normalizer */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Envolve todo o conteúdo para que as variáveis de tema sejam aplicadas corretamente */
+.theme-root {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Conteúdo principal do site */
+.site-content {
+    max-width: var(--site-width);
+    margin: 0 auto;
+    padding: 0 var(--global-space-md);
+}
+
+/* === Títulos === */
+
+/* Cores, decorações e alinhamento */
+h1,
+h2,
+h3 {
+    color: var(--title-color);
+    text-decoration: underline;
+    text-align: center;
+}
+
+/* clamp() centralizado nas variáveis: fácil de ajustar a escala tipográfica */
+h1 {
+    font-size: var(--font-h1);
+}
+
+h2 {
+    font-size: var(--font-h2);
+}
+
+h3 {
+    font-size: var(--font-h3);
+}
+
+/* === Textos gerais === */
+
+/* Cor */
+p,
+ul,
+table,
+label {
+    color: var(--text-color);
+}
+
+/* Aumenta a 1ª letra */
+p::first-letter {
+    font-size: 200%;
+}
+
+/* Quando passa por cima do link */
+a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* === Tabelas === */
+
+/* Estilos para a tabela */
+table {
+    border-style: solid;
+    margin: var(--global-space-md) auto;
+}
+
+/* Estilos para as células da tabela */
+table td,
+th {
+    width: clamp(50px, 10vw, 100px);
+    text-align: center;
+    padding: var(--global-space-xs);
+}
+
+/* Estilos para as células da tabela no body */
+tbody tr td {
+    color: var(--table-body-color);
+}
+
+/* === Footer === */
+
+/* Estilos para o rodapé: --font-sm reutilizado do figcaption */
+footer {
+    font-size: var(--font-sm);
+    text-align: center;
+    padding: var(--global-space-md);
+    border-top: 1px solid var(--global-border-color);
+    margin-top: var(--global-space-xl);
+}
+
+/* Links dentro do rodapé */
+footer a {
+    color: var(--text-color);
+}
+
+/* Quando passa por cima dos links dentro do rodapé */
+footer a:hover {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--link-hover-color);
+    color: var(--link-hover-color);
+}
