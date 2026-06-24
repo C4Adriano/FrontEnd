@@ -19,9 +19,9 @@
     /* --- Cores especiais (.special) --- */
     --special-text-color: #0a5732;
     --special-title-color: #004d4d;
-    --special-table-body-color: #add8e6;
+    --special-table-body-color: #044a61;
     --special-link-hover-bg: #004d4d;
-    --special-link-hover-color: black;
+    --special-link-hover-color: #000000;
 
     /* --- Bordas --- */
     --global-border-color: #cccccc;
